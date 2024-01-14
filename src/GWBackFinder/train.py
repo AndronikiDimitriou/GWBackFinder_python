@@ -14,7 +14,7 @@ basepath = pathlib.Path(__file__).parent.resolve()
 # %%
     
 def train(thetas=None, gw_total=None, prior=None, resume_training=False, validation_fraction=0.2, 
-          learning_rate=1e-4, show_train_summary=True, max_num_epochs=None, path=None, 
+          learning_rate=1e-4, show_train_summary=True, max_num_epochs=None, path_saved=None, path_inference=None,
           model_type="nsf", hidden_features=64, num_transforms=3, name_file=None):
     
     """
@@ -30,25 +30,25 @@ def train(thetas=None, gw_total=None, prior=None, resume_training=False, validat
     - learning_rate: Learning rate for the optimizer during training.
     - show_train_summary: If True, show training summary.
     - max_num_epochs: Maximum number of epochs for training.
-    - path: Path to the saved model if resume_training is True.
+    - path_saved: Path to the saved model if resume_training is True.
+    - path_inference: Path to save inference.
     - model_type: Type of neural network model.
     - hidden_features: Number of hidden features in the neural network model.
     - num_transforms: Number of transformations in the neural network model.
     - name_file: Name of the pickle file (without extension) to save the inference object.
-
     Returns:
     Trained density estimator.
     """
 
     if resume_training==True:
-        with open(path, "rb") as handle:
+        with open(path_saved, "rb") as handle:
             inference = pickle.load(handle)
 
         density_estimator = inference.train(resume_training=True, validation_fraction=validation_fraction, 
                                             learning_rate=learning_rate, show_train_summary=show_train_summary, 
                                             max_num_epochs=max_num_epochs, force_first_round_loss=True)
 
-        with open("/data/users/Androniki/"+name_file+".pkl", "wb") as handle:
+        with open(path_inference+name_file, "wb") as handle:
             pickle.dump(inference, handle) 
     
     else: 
@@ -62,7 +62,7 @@ def train(thetas=None, gw_total=None, prior=None, resume_training=False, validat
                                             learning_rate=learning_rate, show_train_summary=show_train_summary, 
                                             max_num_epochs=max_num_epochs, force_first_round_loss=False)
         
-        with open("/data/users/Androniki/"+name_file+".pkl", "wb") as handle:
+        with open(path_inference+name_file, "wb") as handle:
             pickle.dump(inference, handle) 
     
     return density_estimator    
