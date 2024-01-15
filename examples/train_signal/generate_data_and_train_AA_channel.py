@@ -58,7 +58,7 @@ print(thetas.shape)
 ## train and save inference in the file train_200.pkl
 GW_train.train(thetas=thetas, gw_total=gw_total, prior=custom_prior, resume_training=False, validation_fraction=0.2, 
           learning_rate=1e-4, show_train_summary=True, max_num_epochs=200, 
-          path_saved=None, path_inference="data/users/Androniki/", name_file="train_200.pkl", model_type="nsf", hidden_features=64, num_transforms=3)
+          path_saved=None, path_inference="/data/users/Androniki/", name_file="train_200.pkl", model_type="nsf", hidden_features=64, num_transforms=3)
 
 # %%
 ## get posterior from the train_200.pkl and save it in posterior.pkl

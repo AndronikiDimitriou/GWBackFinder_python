@@ -27,8 +27,8 @@ z=np.load("/data/users/Androniki/Dani/z_new.npy")
 
 gw_total_list=[]
 for i in tqdm(range(1,430000)):
-    Data = h5py.File("/data/users/Androniki/Dani_new/"+str(i-1)+".jld2", "r")    
-    gw_total_list.append(np.array(Data["data"]))
+    f = h5py.File("/data/users/Androniki/Dani_new/"+str(i-1)+".jld2", "r")    
+    gw_total_list.append(np.array(f["data"]))
   
 # %%      
 ## convert to tensor 
@@ -44,7 +44,7 @@ print(thetas.shape)
 ## train and save inference in the file train_200.pkl
 GW_train.train(thetas=thetas, gw_total=gw_total, prior=custom_prior, resume_training=False, validation_fraction=0.2, 
           learning_rate=1e-4, show_train_summary=True, max_num_epochs=200, 
-          path_saved=None, path_inference="data/users/Androniki/", name_file="train_200.pkl", model_type="nsf", hidden_features=64, num_transforms=3)
+          path_saved=None, path_inference="/data/users/Androniki/", name_file="train_200.pkl", model_type="nsf", hidden_features=64, num_transforms=3)
 
 # %%
 ## get posterior from the train_200.pkl and save it in posterior.pkl
