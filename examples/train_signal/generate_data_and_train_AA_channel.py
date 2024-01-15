@@ -35,12 +35,8 @@ Sb1, Sb2, Sb3, Sb4, Sb5, Sb6, Sb7, Sb8, Sb9, Sb10, Sb11, Sb12, Sb13, Sb14, Sb15,
 
 # %%
 gw_total_list=[]
-for i in tqdm(range(len(z))):
-    z1, z2, z3, z4, z5, z6, z7, z8, z9, z10, z11, z12, z13, z14, z15, z16, z17, z18, z19, z20, z21, z22, z23, z24, z25, z26 = -12 +z[i,0:26].numpy()*(12-(-12))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-    Amp =-14+z[i,26].numpy()*(-6-(-14))
-    A = z[i,27].numpy()
-    Data_total = jl.GWBackFinder.model_train_data(z1, z2, z3, z4, z5, z6, z7, z8, z9, z10, z11, z12, z13, z14, z15, 
-                                                  z16, z17, z18, z19, z20, z21, z22, z23, z24, z25, z26, Amp, A, f, idx,
+for i in tqdm(range((1))):
+    Data_total = jl.GWBackFinder.model_train_data(np.array(z[i,:]), f, idx,
                                                   f_filtered,logbins, Sb1, Sb2, Sb3, Sb4, Sb5, Sb6, Sb7, Sb8, Sb9, Sb10, 
                                                   Sb11, Sb12, Sb13, Sb14, Sb15, Sb16, Sb17, Sb18, Sb19, Sb20, Sb21, Sb22, Sb23, Sb24, Sb25)
     gw_total_list.append(np.array(Data_total))
