@@ -16,7 +16,6 @@ import numpy as np
 sys.path.append("/home/zaldivar/Documents/Androniki/Github/GWBackFinder_python")
 from src.GWBackFinder import train as noise_train
 
-
 # %%
 prior_c = Normal(torch.tensor([15.]), torch.tensor([0.2*15]))
 prior, *_ = utils.process_prior(prior_c)  
@@ -25,10 +24,9 @@ z=prior.sample((1000,))
 
 # %%
 f=jl.range(3*1e-5, 0.5, step=1e-6)
-
 # %%
 gw_total_noise=[]
-for i in tqdm(range(len(z))):
+for i in (range(5)):
     Data_total = jl.GWBackFinder.model_noise_train_data(f, z[i].numpy()[0])
     gw_total_noise.append(np.array(Data_total))
     
