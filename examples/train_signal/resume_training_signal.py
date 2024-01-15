@@ -12,7 +12,7 @@ from src.GWBackFinder import train as GW_train
 from src.GWBackFinder import prior as GW_prior
 
 # %%
-## load the prior and save inference in the file train_400.pkl
+## load the prior 
 custom_prior=GW_prior.get_prior()
 
 ## resume training 
@@ -23,7 +23,7 @@ GW_train.train(thetas=None, gw_total=None, prior=custom_prior, resume_training=T
 
 # %%
 ## get posterior from the train_400.pkl and save it in posterior.pkl
-GW_train.get_posterior("/data/users/Androniki/train_400.pkl","posterior")
+GW_train.get_posterior("/data/users/Androniki/train_400.pkl","posterior.pkl")
 
 
 

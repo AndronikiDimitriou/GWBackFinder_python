@@ -83,7 +83,7 @@ def get_posterior(path,name_file):
         inference = pickle.load(handle)
     posterior = inference.build_posterior()
 
-    with open("./"+name_file+".pkl", "wb") as handle:
+    with open("./"+name_file, "wb") as handle:
         pickle.dump(posterior, handle)
     return posterior
 # %%

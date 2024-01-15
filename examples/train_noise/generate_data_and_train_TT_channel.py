@@ -47,7 +47,7 @@ noise_train.train(thetas=thetas, gw_total=gw_total_noise, prior=prior, resume_tr
 
 # %%
 ## get posterior
-noise_train.get_posterior("/data/users/Androniki/train_200_noise.pkl","posterior_noise")# %%
+noise_train.get_posterior("/data/users/Androniki/train_200_noise.pkl","posterior_noise.pkl")# %%
 
 
 # %%

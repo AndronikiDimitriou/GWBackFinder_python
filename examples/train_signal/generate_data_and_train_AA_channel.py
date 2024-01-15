@@ -62,4 +62,4 @@ GW_train.train(thetas=thetas, gw_total=gw_total, prior=custom_prior, resume_trai
 
 # %%
 ## get posterior from the train_200.pkl and save it in posterior.pkl
-GW_train.get_posterior("/data/users/Androniki/train_200.pkl","posterior")
+GW_train.get_posterior("/data/users/Androniki/train_200.pkl","posterior.pkl")

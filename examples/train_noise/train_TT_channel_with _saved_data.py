@@ -42,4 +42,4 @@ noise_train.train(thetas=thetas, gw_total=gw_total_noise, prior=prior, resume_tr
           path_saved=None, path_inference="/data/users/Androniki/", name_file="train_200_noise.pkl", model_type="nsf", hidden_features=64, num_transforms=3)
 # %%
 ## get posterior
-noise_train.get_posterior("/data/users/Androniki/train_200_noise.pkl","posterior_noise")# %%
+noise_train.get_posterior("/data/users/Androniki/train_200_noise.pkl","posterior_noise.pkl")# %%
